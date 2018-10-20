@@ -1,20 +1,20 @@
 #include "holberton.h"
 #include <unistd.h>
 #include <stdio.h>
+#include <stdarg.h>
 
 /**
  * _putchar - Prints a single character to standard output
  */
 
-_putchar(char c)
+void _putchar(char c)
 {
 	write(1, &c, 1);
 }
-
+/**
 /**
  * print_int - Prints an integer to standard output
- */
-/**
+
 void print_int(va_list args)
 {
 	int length, index;
@@ -25,7 +25,7 @@ void print_int(va_list args)
 	for (index = 0; index < length; index++)
 		_putchar(number[index] + '0');
 }
- */
+
 /**
  * print_char - Prints a character to standard output
  */
@@ -37,8 +37,8 @@ void print_char(va_list args)
 
 /**
  * print_str - Prints to the standard output a string passed as an argument to the function
- */
-/**
+
+
 void print_str(va_list args)
 {
 	int length, index;
@@ -49,11 +49,11 @@ void print_str(va_list args)
 	for (index = 0;index <length;index++)
 		_putchar(str[index]);
 }
- */
-/**
+
+
  * print_per - Prints to the standard output a percent sign passed as an argument to the function
- */
-/**
+
+
 void print_per(va_list args)
 {
 	_putchar('\%');
