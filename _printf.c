@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 					spec[speci].f(arg);
 			}
 		}
-		count++;
+		count++;	       
 		_putchar(format[fi]);
 	}
 	return (count);
