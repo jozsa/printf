@@ -12,7 +12,7 @@ void _putchar(char c)
 	write(1, &c, 1);
 }
 /**
-/**
+**
  * print_int - Prints an integer to standard output
 
 void print_int(va_list args)
@@ -26,13 +26,13 @@ void print_int(va_list args)
 		_putchar(number[index] + '0');
 }
 
-/**
+**
  * print_char - Prints a character to standard output
  */
 
 void print_char(va_list args)
 {
-	_putchar(va_arg(args, char));
+	_putchar(va_arg(args, int));
 }
 
 /**
