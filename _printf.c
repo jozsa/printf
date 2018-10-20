@@ -1,16 +1,12 @@
-#include "myprintf.h"
+#include "holberton.h"
 #include <stdarg.h>
-
+#include <stdlib.h>
 int _printf(const char *format, ...)
 {
 	va_list args;
 	int count = 0, fi, speci;
-	spec_t spec[6] = {
+	spec_t spec[] = {
 		{"c", print_char},
-		{"d", print_int},
-		{"i", print_int},
-		{"s", print_str},
-		{"%", print_per},
 		{NULL, NULL}
 	};
 
@@ -21,14 +17,15 @@ int _printf(const char *format, ...)
 		if (format[fi] == '%')
 		{
 			fi++;
-			for (speci = 0; spec[speci]; speci++)
+			for (speci = 0; speci < 1; speci++)
 			{
 				if (format[fi] == *(spec[speci].spec))
-					spec[speci].f(arg);
+					spec[speci].f(args);
 			}
+			fi++;
 		}
 		count++;
 		_putchar(format[fi]);
 	}
-	return (count);
+	return (count - 1);
 }
