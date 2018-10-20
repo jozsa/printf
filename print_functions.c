@@ -37,12 +37,14 @@ void print_char(va_list args)
 
 /**
  * print_str - Prints to the standard output a string passed as an argument to the function
-
+ */
 
 void print_str(va_list args)
 {
 	int length, index;
-	int *str = va_arg(args, char*);
+	char *str;
+
+	str = va_arg(args, char*);
 
 	for (length = 1; str[length] != '\0'; length++)
 		;
@@ -50,7 +52,7 @@ void print_str(va_list args)
 		_putchar(str[index]);
 }
 
-
+/**
  * print_per - Prints to the standard output a percent sign passed as an argument to the function
 
 
