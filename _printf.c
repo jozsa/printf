@@ -1,16 +1,16 @@
-#include "holberton.h"
+#include "myprintf.h"
 #include <stdarg.h>
 
 int _printf(const char *format, ...)
 {
 	va_list args;
 	int count = 0, fi, speci;
-	spec_t spec[] = {
-		{'c', print_char},
-		{'d', print_int},
-		{'i', print_int},
-		{'s', print_str},
-		{'%', print_per},
+	spec_t spec[6] = {
+		{"c", print_char},
+		{"d", print_int},
+		{"i", print_int},
+		{"s", print_str},
+		{"%", print_per},
 		{NULL, NULL}
 	};
 
