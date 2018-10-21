@@ -7,6 +7,7 @@ int _printf(const char *format, ...)
 	int count = 0, fi, speci;
 	spec_t spec[] = {
 		{"c", print_char},
+		{"s", print_str},
 		{NULL, NULL}
 	};
 
@@ -17,10 +18,10 @@ int _printf(const char *format, ...)
 		if (format[fi] == '%')
 		{
 			fi++;
-			for (speci = 0; speci < 1; speci++)
+			for (speci = 0; speci < 2; speci++)
 			{
 				if (format[fi] == *(spec[speci].spec))
-					spec[speci].f(args);
+					count = spec[speci].f(args);
 			}
 			fi++;
 		}
