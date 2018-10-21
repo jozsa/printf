@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 			for (speci = 0; speci < 2; speci++)
 			{
 				if (format[fi] == *(spec[speci].spec))
-					spec[speci].f(args);
+					count = spec[speci].f(args);
 			}
 			fi++;
 		}
