@@ -60,11 +60,11 @@ int print_str(va_list args)
 
 /**
  * print_per - Prints to the standard output a percent sign passed as an argument to the function
+ */
 
 
-int print_per(va_list args)
+int print_per()
 {
-	_putchar('\%');
+	_putchar('%');
 	return (0);
 }
-*/
