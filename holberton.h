@@ -4,7 +4,7 @@
 typedef struct specifier
 {
 	char *spec;
-	void (*f)();
+	int (*f)();
 } spec_t;
 
 int _printf(const char *format, ...);
