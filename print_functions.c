@@ -27,7 +27,7 @@ int print_int(va_list args)
 		;
 	for (index = 0; index < length; index++)
 		_putchar(number[index] + '0');
-	return (length);
+	return (length - 1);
 }
 
 **
@@ -55,7 +55,7 @@ int print_str(va_list args)
 		;
 	for (index = 0;index <length;index++)
 		_putchar(str[index]);
-	return (length);
+	return (length - 1);
 }
 
 /**
