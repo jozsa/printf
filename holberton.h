@@ -9,8 +9,8 @@ typedef struct specifier
 
 int _printf(const char *format, ...);
 void _putchar(char c);
-void print_int(va_list args);
-void print_char(va_list args);
-void print_str(va_list args);
-void print_per(va_list args);
+int print_int(va_list args);
+int print_char(va_list args);
+int print_str(va_list args);
+int print_per(va_list args);
 #endif
