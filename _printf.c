@@ -21,12 +21,12 @@ int _printf(const char *format, ...)
 			for (speci = 0; speci < 2; speci++)
 			{
 				if (format[fi] == *(spec[speci].spec))
-					count = spec[speci].f(args);
+					count += spec[speci].f(args);
 			}
 			fi++;
-		}
-		count++;	       
+		} 
+		count++;
 		_putchar(format[fi]);
 	}
-	return (count - 1);
+	return (count);
 }
