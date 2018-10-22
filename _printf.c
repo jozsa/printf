@@ -1,6 +1,11 @@
 #include "holberton.h"
 #include <stdarg.h>
 #include <stdlib.h>
+/**
+ * _printf - prints output according to format
+ * @format: string
+ * Return: number of characters printed
+ */
 int _printf(const char *format, ...)
 {
 	va_list args;
@@ -11,22 +16,29 @@ int _printf(const char *format, ...)
 		{NULL, NULL}
 	};
 
-	va_start (args, format);
+	va_start(args, format);
 
 	for (fi = 0; format[fi] != '\0'; fi++)
 	{
-		if (format[fi] == '%')
+		while (format[fi] != '%' && format[fi] != '\0')
 		{
+			_putchar(format[fi]);
+			count++;
 			fi++;
-			for (speci = 0; speci < 2; speci++)
+		}
+		if (format[fi] != '\0')
+			fi++;
+		else
+			break;
+		for (speci = 0; speci < 2; speci++)
+		{
+			if (format[fi] == *(spec[speci].spec))
 			{
-				if (format[fi] == *(spec[speci].spec))
-					count += spec[speci].f(args);
+				count += spec[speci].f(args);
+				break;
 			}
-			fi++;
-		} 
-		count++;
-		_putchar(format[fi]);
+		}
 	}
+	va_end(args);
 	return (count);
 }
