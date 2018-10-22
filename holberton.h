@@ -3,7 +3,7 @@
 #include <stdarg.h>
 
 /**
- * specifier - Struct for data types and function pointers
+ * struct specifier - Struct for data types and function pointers
  * @spec: The data type to be specified by _printf
  * @f: The corresponding function pointer for each data type
  *
@@ -17,9 +17,9 @@ typedef struct specifier
 } spec_t;
 
 int _printf(const char *format, ...);
-void _putchar(char c);
+unsigned int _strlen(const char *str);
 int print_int(va_list args);
 int print_char(va_list args);
 int print_str(va_list args);
-int print_per();
+int print_per(void);
 #endif
