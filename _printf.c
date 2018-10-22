@@ -13,6 +13,9 @@ int _printf(const char *format, ...)
 	spec_t spec[] = {
 		{"c", print_char},
 		{"s", print_str},
+		{"%", print_per},
+		{"d", print_int},
+		{"i", print_int},
 		{NULL, NULL}
 	};
 
@@ -30,7 +33,7 @@ int _printf(const char *format, ...)
 			fi++;
 		else
 			break;
-		for (speci = 0; speci < 2; speci++)
+		for (speci = 0; speci < 5; speci++)
 		{
 			if (format[fi] == *(spec[speci].spec))
 			{
