@@ -27,6 +27,12 @@ int print_int(va_list args)
 		_putchar('0');
 		count = 1;
 	}
+	else if (number < 0)
+	{
+		_putchar('-');
+		number = -number;
+		count = 1;
+	}
 	if (number > 0)
 	{
 		for (divisor = 1; divisor <= number; divisor *= 10)
