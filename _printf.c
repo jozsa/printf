@@ -1,6 +1,13 @@
 #include "holberton.h"
 #include <stdarg.h>
 #include <stdlib.h>
+#include <unistd.h>
+/**
+ * _printf - prints output according to format
+ * @format: string
+ * Return: number of characters printed
+ */
+
 int _printf(const char *format, ...)
 {
 	va_list args;
@@ -8,31 +15,33 @@ int _printf(const char *format, ...)
 	spec_t spec[] = {
 		{"c", print_char},
 		{"s", print_str},
-		{"%", print_per},
+		{"d", print_int},
 		{NULL, NULL}
 	};
 
-	va_start (args, format);
+	va_start(args, format);
 
 	for (fi = 0; format[fi] != '\0'; fi++)
 	{
-		if (format[fi] == '%')
+		while (format[fi] != '%' && format[fi] != '\0')
 		{
+			write(1, &format[fi], 1);
+			count++;
 			fi++;
-			if (format[fi] == '%')
-			{
-				_putchar(format[fi]);
-				continue;
-			}
-			for (speci = 0; speci < 3; speci++)
-			{
-				if (format[fi] == *(spec[speci].spec))
-					count += spec[speci].f(args);
-			}
+		}
+		if (format[fi] != '\0')
 			fi++;
-		} 
-		count++;
-		_putchar(format[fi]);
+		else
+			break;
+		for (speci = 0; speci < 2; speci++)
+		{
+			if (format[fi] == *(spec[speci].spec))
+			{
+				count += spec[speci].f(args);
+				break;
+			}
+		}
 	}
+	va_end(args);
 	return (count);
 }
