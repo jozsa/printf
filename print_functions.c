@@ -19,23 +19,25 @@ void _putchar(char c)
  */
 int print_int(va_list args)
 {
-	int number, divisor, count = 0;
+	long int number, divisor, count = 0;
 
 	number = va_arg(args, int);
-	if (number < 0)
+	if (number == 0)
 	{
-		_putchar('-');
-		number = -number;
+		_putchar('0');
 		count = 1;
 	}
-	for (divisor = 1; divisor <= number; divisor *= 10)
-		;
-	while (number)
+	if (number > 0)
 	{
-		divisor /= 10;
-		_putchar((number / divisor) + '0');
-		number %= divisor;
-		count++;
+		for (divisor = 1; divisor <= number; divisor *= 10)
+			;
+		while (number)
+		{
+			divisor /= 10;
+			_putchar((number / divisor) + '0');
+			number %= divisor;
+			count++;
+		}
 	}
 	return (count);
 }
@@ -64,6 +66,8 @@ int print_str(va_list args)
 	str = va_arg(args, char*);
 	if (str == NULL)
 		str = "(null)";
+	if (str[0] == '\0')
+		return (0);
 	for (length = 1; str[length] != '\0'; length++)
 		;
 	for (index = 0; index < length; index++)
