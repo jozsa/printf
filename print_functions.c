@@ -22,6 +22,7 @@ int print_int(va_list args)
 	long int number, divisor, count = 0;
 
 	number = va_arg(args, int);
+
 	if (number == 0)
 	{
 		_putchar('0');
@@ -37,7 +38,7 @@ int print_int(va_list args)
 	{
 		for (divisor = 1; divisor <= number; divisor *= 10)
 			;
-		while (number)
+		while (divisor > 1)
 		{
 			divisor /= 10;
 			_putchar((number / divisor) + '0');
