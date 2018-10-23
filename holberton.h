@@ -21,4 +21,5 @@ int print_int(va_list args);
 int print_char(va_list args);
 int print_str(va_list args);
 int print_per(void);
+int print_bin(va_list bin);
 #endif
