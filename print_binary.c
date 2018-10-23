@@ -12,7 +12,7 @@
 int print_bin(va_list bin)
 {
 	unsigned int number, count = 0, index = 0;
-        int arr[100];
+	int arr[100];
 
 	number = va_arg(bin, int);
 
