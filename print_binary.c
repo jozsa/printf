@@ -2,12 +2,19 @@
 #include <stdio.h>
 #include <stdarg.h>
 
+/**
+ * print_bin - Converts unsigned int argument to binary
+ * @bin: The decimal number to be converted
+ *
+ * Return: The number of digits printed
+ */
+
 int print_bin(va_list bin)
 {
 	unsigned int number, count = 0, index = 0;
-	int arr[1000];
+        int arr[100];
 
-	number = va_arg(bin, unsigned int);
+	number = va_arg(bin, int);
 
 	if (number < 2)
 	{
