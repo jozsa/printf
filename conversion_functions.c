@@ -67,7 +67,7 @@ int print_Xhexa(va_list args)
 	{
 		temp /= 16;
 	}
-	num = convert(number, size , 16);
+	num = convert(number, size, 16);
 	while (temp != 0)
 	{
 		temp /= 16;
