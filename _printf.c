@@ -17,14 +17,14 @@ int _printf(const char *format, ...)
 		{"d", print_int},
 		{"i", print_int},
 		{"b", print_bin},
+		{"o", print_oct},
+		{"X", print_Xhexa},
 		{NULL, NULL}
 	};
 
 	va_start(args, format);
-
 	if (format == NULL)
 		return (0);
-
 	for (fi = 0; format[fi] != '\0'; fi++)
 	{
 		while (format[fi] != '%' && format[fi] != '\0')
@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 			fi++;
 		else
 			break;
-		for (speci = 0; speci < 6; speci++)
+		for (speci = 0; speci < 8; speci++)
 		{
 			if (format[fi] == *(spec[speci].spec))
 			{
