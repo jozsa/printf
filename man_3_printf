@@ -52,6 +52,11 @@ The int argument is converted to a unsigned int decimal.
 o
 .PP
 The int argument is converted to a octal number (base 8) representation. 
+.PP
+.B
+X
+.PP
+The int argument is converted to a hexadecimal number (base 16) representation in uppercase alphabets.
 .SH OPTIONS
 .B _printf
 does not take any options
