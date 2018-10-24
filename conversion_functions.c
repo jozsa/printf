@@ -67,7 +67,7 @@ int print_Xhexa(va_list args)
 	{
 		temp /= 16;
 	}
-	num = convert(number, size , 16);
+	num = convert(number, size, 16);
 	for (index = 0; num[index] != '\0'; index++)
 	{
 		_putchar(num[index]);
@@ -98,7 +98,7 @@ char *convert(unsigned int num, unsigned int size, int base)
 	} while (num != 0);
 
 	return (ptr);
-} 
+}
 
 /**
  * print_oct - Converts a decimal number passed to the argument to an octal
