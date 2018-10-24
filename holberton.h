@@ -22,4 +22,8 @@ int print_char(va_list args);
 int print_str(va_list args);
 int print_per(void);
 int print_bin(va_list bin);
+int print_Xhexa(va_list args);
+char *convert(unsigned int num, unsigned int size, int base);
+int print_oct(va_list oct);
+int print_u(va_list un);
 #endif
