@@ -48,7 +48,7 @@ int print_Xhexa(va_list args)
 {
 	long int number, temp, count = 0, index;
 	char *num;
-	unsigned int size;
+	unsigned int size = 100;
 
 	number = va_arg(args, int);
 	if (number == 0)
@@ -63,10 +63,13 @@ int print_Xhexa(va_list args)
 		count = 1;
 	}
 	temp = number;
-	size = 0;
 	while (temp != 0)
 	{
-		size++;
+		temp /= 16;
+	}
+	num = convert(number, size , 16);
+	while (temp != 0)
+	{
 		temp /= 16;
 	}
 	num = convert(number, size, 16);
@@ -87,6 +90,10 @@ int print_Xhexa(va_list args)
 char *convert(unsigned int num, unsigned int size, int base)
 {
 	char num_sys[] = "0123456789ABCDEF";
+	char buffer[100];
+	char *ptr;
+
+	ptr = &buffer[size];
 	char buffer[size + 1];
 	char *ptr;
 
