@@ -37,3 +37,100 @@ int print_bin(va_list bin)
 	}
 	return (count);
 }
+/**
+ * print_Xhexa - Converts decimal to uppercase hexadecimal
+ * @args: the list of arguments
+ *
+ * Return: The number of digits printed
+ */
+
+int print_Xhexa(va_list args)
+{
+	long int number, temp, count = 0, index;
+	char *num;
+	unsigned int size;
+
+	number = va_arg(args, int);
+	if (number == 0)
+	{
+		_putchar('0');
+		count = 1;
+	}
+	else if (number < 0)
+	{
+		_putchar('-');
+		number = -number;
+		count = 1;
+	}
+	temp = number;
+	size = 0;
+	while (temp != 0)
+	{
+		size++;
+		temp /= 16;
+	}
+	num = convert(number, size, 16);
+	for (index = 0; num[index] != '\0'; index++)
+	{
+		_putchar(num[index]);
+		count++;
+	}
+	return (count);
+}
+/**
+ * convert - converts decimal number to hexadecimal number
+ * @num: number to be converted
+ * @size: digits in hexadecimal number
+ * @base: base to convert to
+ * Return: pointer to hexadecimal
+ */
+char *convert(unsigned int num, unsigned int size, int base) 
+{ 
+	char num_sys[]= "0123456789ABCDEF";
+	char buffer[size + 1];
+	char *ptr;
+
+	ptr = &buffer[size + 1]; 
+	*ptr = '\0'; 
+	
+	do 
+	{
+		*--ptr = num_sys[num%base]; 
+		num /= base; 
+	}while(num != 0); 
+	
+	return (ptr); 
+}
+/**
+ * print_oct - Converts a decimal number passed to the argument to an octal
+ * number
+ * @oct: The number to be converted
+ * Return: count of digit in octal number
+ */
+int print_oct(va_list oct)
+{
+	unsigned int number, count = 0, index = 0;
+	int arr[100];
+
+	number = va_arg(oct, int);
+	if (number < 9)
+	{
+		_putchar(number + '0');
+		count = 1;
+	}
+	else if (number >= 9)
+	{
+		while (number > 0)
+		{
+			arr[index] = number % 8;
+			number /= 8;
+			index++;
+		}
+	}
+	while (index --)
+	{
+		_putchar(arr[index] + '0');
+		count++;
+	}
+	return (count);
+}
