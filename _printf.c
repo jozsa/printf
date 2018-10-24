@@ -11,15 +11,11 @@ int _printf(const char *format, ...)
 	va_list args;
 	int count = 0, fi, speci;
 	spec_t spec[] = {
-		{"c", print_char},
-		{"s", print_str},
-		{"%", print_per},
-		{"d", print_int},
-		{"i", print_int},
-		{"b", print_bin},
-		{"o", print_oct},
-		{"X", print_Xhexa},
-		{NULL, NULL}
+		{"c", print_char}, {"s", print_str},
+		{"%", print_per}, {"d", print_int},
+		{"i", print_int}, {"b", print_bin},
+		{"o", print_oct}, {"X", print_Xhexa},
+		{"u", print_u}, {NULL, NULL}
 	};
 
 	va_start(args, format);
@@ -37,7 +33,7 @@ int _printf(const char *format, ...)
 			fi++;
 		else
 			break;
-		for (speci = 0; speci < 8; speci++)
+		for (speci = 0; speci < 9; speci++)
 		{
 			if (format[fi] == *(spec[speci].spec))
 			{
