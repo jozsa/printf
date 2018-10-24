@@ -133,3 +133,34 @@ int print_oct(va_list oct)
 	}
 	return (count);
 }
+/**
+ * print_u - Convert a number into an unsigned int and print it
+ * @un: The number to be converted
+ *
+ * Return: The number of digits printed
+ */
+int print_u(va_list un)
+{
+	unsigned int number, count = 0, divisor;
+
+	number = va_arg(un, int);
+
+	if (number == 0)
+	{
+		_putchar('0');
+		count = 1;
+	}
+	if (number > 0)
+	{
+		for (divisor = 1; (number / divisor) > 9; divisor *= 10)
+			;
+		while (divisor != 0)
+		{
+			_putchar((number / divisor) + '0');
+			number %= divisor;
+			divisor /= 10;
+			count++;
+		}
+	}
+	return (count);
+}
