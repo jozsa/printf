@@ -84,22 +84,21 @@ int print_Xhexa(va_list args)
  * @base: base to convert to
  * Return: pointer to hexadecimal
  */
-char *convert(unsigned int num, unsigned int size, int base) 
-{ 
-	char num_sys[]= "0123456789ABCDEF";
+char *convert(unsigned int num, unsigned int size, int base)
+{
+	char num_sys[] = "0123456789ABCDEF";
 	char buffer[size + 1];
 	char *ptr;
 
-	ptr = &buffer[size + 1]; 
-	*ptr = '\0'; 
-	
-	do 
-	{
-		*--ptr = num_sys[num%base]; 
-		num /= base; 
-	}while(num != 0); 
-	
-	return (ptr); 
+	ptr = &buffer[size + 1];
+	*ptr = '\0';
+
+	do {
+		*--ptr = num_sys[num % base];
+		num /= base;
+	} while (num != 0);
+
+	return (ptr);
 }
 /**
  * print_oct - Converts a decimal number passed to the argument to an octal
@@ -127,7 +126,7 @@ int print_oct(va_list oct)
 			index++;
 		}
 	}
-	while (index --)
+	while (index--)
 	{
 		_putchar(arr[index] + '0');
 		count++;
