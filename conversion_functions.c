@@ -68,6 +68,11 @@ int print_Xhexa(va_list args)
 		temp /= 16;
 	}
 	num = convert(number, size , 16);
+	while (temp != 0)
+	{
+		temp /= 16;
+	}
+	num = convert(number, size, 16);
 	for (index = 0; num[index] != '\0'; index++)
 	{
 		_putchar(num[index]);
@@ -75,7 +80,6 @@ int print_Xhexa(va_list args)
 	}
 	return (count);
 }
-
 /**
  * convert - converts decimal number to hexadecimal number
  * @num: number to be converted
@@ -90,6 +94,10 @@ char *convert(unsigned int num, unsigned int size, int base)
 	char *ptr;
 
 	ptr = &buffer[size];
+	char buffer[size + 1];
+	char *ptr;
+
+	ptr = &buffer[size + 1];
 	*ptr = '\0';
 
 	do {
@@ -98,8 +106,7 @@ char *convert(unsigned int num, unsigned int size, int base)
 	} while (num != 0);
 
 	return (ptr);
-} 
-
+}
 /**
  * print_oct - Converts a decimal number passed to the argument to an octal
  * number
